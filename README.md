@@ -36,7 +36,7 @@ machine learning dev by day, climbing bum by night.
 
 ## Professional Background
 - Cirrus Logic, Inc. (2017 - Present)
-  - Senior Machine Learning Engineer
+  - Senior machine learning engineer
 - University of Texas at Austin, ICES (2016-2017)
   - Postdoctoral fellow
 - University of Utah, Department of Mathematics (2010-2016)
