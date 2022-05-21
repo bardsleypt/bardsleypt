@@ -15,7 +15,7 @@ machine learning dev by day, climbing bum by night.
   - electrochemistry and mathematical modelling of lithium ion batteries
   - how to structure my days to nurture and build creativity
   - `while True:`<br>    `[self.learn(val) for val in ['python', 'cool_python_packages']]`
-- I am looking to collborate on ...
+- I am looking to collaborate on ...
   - anything with a mathematical physics aspect to it
   - anything with a statistical spin to it
   - machine learning projects (mostly signal processing)
@@ -31,8 +31,8 @@ machine learning dev by day, climbing bum by night.
 
 - PhD Applied Mathematics (2016), University of Utah, Department of Mathematics
   - Thesis title: *Intensity-only imaging with waves, restarted inverse Born series, and analysis of coarsening in polycrystalline materials*
-- Master of Mathematical Statistics (2016), University of Utah, Department of Mathematics
-- Bachelor of Science Mathematics (2010), University of Utah, Deparment of Mathematics
+- Master of Science Mathematical Statistics (2016), University of Utah, Department of Mathematics
+- Bachelor of Science Mathematics (2010), University of Utah, Department of Mathematics
 
 ## Professional Background
 - Cirrus Logic, Inc. (2017 - Present)
