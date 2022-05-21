@@ -42,7 +42,10 @@ machine learning dev by day, climbing bum by night.
 - University of Utah, Department of Mathematics (2010-2016)
   - Graduate research and teaching assistant 
  	
-## Relevant Publications
-- \#TODO: insert hrefs
+## Select Publications
+- [Kirchhoff migration without phases](./papers/kmig_io.pdf)
+- [Towards a gradient flow for microstructure](./papers/gfgbcd.pdf)
+- [Change point tests in functional factor models with application to yield curves](.papers/cp_eigs.pdf)
+- \#TODO: insert hrefs for redacted papers
 
 
