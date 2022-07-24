@@ -13,7 +13,6 @@ machine learning dev by day, climbing bum by night.
   - Star Wars (in order: 5, 4, 6 #EmpireDidNothingWrong)
 - I am currently learning ...
   - electrochemistry and mathematical modelling of lithium ion batteries
-  - how to structure my days to nurture and build creativity
   - `while True:`<br>    `[self.learn(val) for val in ['python', 'cool_python_packages']]`
 - I am looking to collaborate on ...
   - anything with a mathematical physics aspect to it
@@ -26,6 +25,24 @@ machine learning dev by day, climbing bum by night.
 **resume**: #TODO: insert href
 
 # My Portfolio
+
+## Codebase
+Within this repository, I have included a fully functional codebase
+which can be used to train and test a neural-network-based
+shape-classifier. Essentially, the classifier infers the order of a
+polynomial with one of two architectures:
+  - MLP architecture
+  - Custom-kernel convolutional architecture
+
+While this codebase and its classifier is fully functional, no efforts
+have been made for tuning (hyper)parameters. Rather the code is in place
+purely for demonstrative purposes and to collect some routines I
+regularly use. 
+
+Driving scripts for training and testing can be found in the following
+links:
+  - TODO: insert href script/notebook for training
+  - TODO: insert href script/notebook for testing
 
 ## Educational Background
 
@@ -42,10 +59,13 @@ machine learning dev by day, climbing bum by night.
 - University of Utah, Department of Mathematics (2010-2016)
   - Graduate research and teaching assistant 
  	
-## Select Publications
+## Select Publications and White Papers
 - [Kirchhoff migration without phases](./papers/kmig_io.pdf)
 - [Towards a gradient flow for microstructure](./papers/gfgbcd.pdf)
 - [Change point tests in functional factor models with application to yield curves](.papers/cp_eigs.pdf)
-- \#TODO: insert hrefs for redacted papers
+- [On mutual information and ideal feature
+  classification](./papers/mut_info.pdf)
+- [On confident estimates of dataset sizes](./papers/conf_est.pdf)
+- [Statistical estimation of undetected errors](./papers/stat_errs.pdf)
 
 
