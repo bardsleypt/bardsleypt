@@ -39,10 +39,14 @@ have been made for tuning (hyper)parameters. Rather the code is in place
 purely for demonstrative purposes and to collect some routines I
 regularly use. 
 
-Driving scripts for training and testing can be found in the following
-links:
-  - TODO: insert href script/notebook for training
-  - TODO: insert href script/notebook for testing
+A top-level jupyter-notebook is available to demonstrate the calling behavior
+of this codebase. By default, the notebook will execute:
+  - synthetic data generation
+  - a small 20-epoch training iteration
+  - model calibration
+  - model testing/validation
+
+[run_training.ipynb](polynet/run_training.ipynb)
 
 ## Educational Background
 

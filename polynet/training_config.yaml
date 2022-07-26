@@ -1,0 +1,180 @@
+logging_opts:
+  console_level: INFO
+  file_level   : DEBUG
+
+# Global parameters
+global_opts:
+  use_gpu     : False    # disabled internally if the build type is full
+  build_type  : test     # not currently functional, test/full model training
+  subset_size : 1024     # Used only when the build_type is a
+  seed: &seed 42
+
+  # location of features and file lists
+  data_dir    : data
+
+  # location of results
+  results_dir : results
+
+  # location of checkpoints
+  checkpoint_dir : results/models/
+
+  # location of TensorBoard logs
+  tb_log_dir :  #results/tb_logs/mlp_net
+
+# Data options
+data_opts:
+  datasets:
+    train_data:
+      type: synthetic  # synthetic, web, or csv
+      dim: 50
+      filename: &train_filename 'train_data.pkl.gz'
+      linear_subset:
+        num_obs: 10000
+        label: 'linear'
+        x_range: [0, 1]
+        roots: [0]
+        shift:   [-10, 10]
+        noise:
+          dist: gaussian # uniform or gaussian
+          params: [0, 0.025]
+      quadratic_subset:
+        num_obs: 10000
+        label: 'quadratic'
+        x_range: [0, 1]
+        roots: [0, 0]
+        shift:   [-10, 10]
+        noise:
+          dist: gaussian # uniform or gaussian
+          params: [0, 0.025]
+      cubic_subset:
+        num_obs: 10000
+        label: 'cubic'
+        x_range: [0, 1]
+        roots: [0, 0, 0]
+        shift:   [-10, 10]
+        noise:
+          dist: gaussian
+          params: [0, 0.025]
+    valid_data:
+      type: synthetic  # synthetic, web, or csv
+      dim: 50
+      filename: &valid_filename 'valid_data.pkl.gz'
+      linear_subset:
+        num_obs: 10000
+        label: 'linear'
+        x_range: [0, 1]
+        roots: [0]
+        shift:   [-9, 11]
+        noise:
+          dist: uniform # uniform or gaussian
+          params: [-0.02, 0.02]
+      quadratic_subset:
+        num_obs: 10000
+        label: 'quadratic'
+        x_range: [0, 1]
+        roots: [0, 0]
+        shift:   [-9, 11]
+        noise:
+          dist: uniform # uniform or gaussian
+          params: [-0.02, 0.02]
+      cubic_subset:
+        num_obs: 10000
+        label: 'cubic'
+        x_range: [0, 1]
+        roots: [0, 0, 0]
+        shift:   [-9, 11]
+        noise:
+          dist: uniform
+          params: [-0.02, 0.02]
+
+# Classifier options
+classif_opts     :
+  optimizer  : adam
+  loss_fct   : CrossEnt
+  model      : DerivNet
+  seed       : *seed
+  num_epochs : 20
+  batch_size : 1024
+
+  # Define datasets used during training
+  datasets:
+    train: &train_data
+      filename: *train_filename
+      feat_key: 'features'
+      label_key: 'label'
+      categories: ['linear', 'quadratic', 'cubic']
+
+    valid: &valid_data
+      filename: *valid_filename
+      feat_key: 'features'
+      label_key: 'label'
+      categories: ['linear', 'quadratic', 'cubic']
+
+  # Datasets used by the trainer, lists of datasets specified above
+  train_datasets: [train]  # name(s) of dataset(s) used for training model weight updates
+  valid_datasets: [train, valid]  # name(s) of dataset(s) used for validation
+
+  # Model architecture
+  model_params           :
+    DerivNet:
+      input_dim       : [50, 1]
+      deriv_orders    : [1, 2]
+      kernel_width    : 16
+      stride          : 1
+      eps             : 0.0001
+      center_kernel   : True
+      pool_size       : 4
+      pool_stride     : 4
+      mlp_dims        : [20, 10, 5]
+      output_dim      : 3
+      dropout_rate    : 0.0
+      # MVN params
+      var_norm        : False
+      mean_norm       : True
+
+    MLPNet:
+      input_dim       : 50
+      hidden_dims     : [25, 10, 10, 10]
+      output_dim      : 3
+      dropout_rate    : 0.0
+      # MVN params
+      var_norm        : False
+      mean_norm       : True
+
+  # Optimizer parameters
+  optimizer_params:
+    adam :
+      learning_rate: .0005
+      beta_1 : 0.9
+      beta_2: 0.999
+      epsilon: 0.000001
+      amsgrad: False
+
+# Calibration parameters
+calib_opts:
+  target_model: 'best_valid_loss.h5'
+  method: OneHotCalib
+  datasets:
+    train: *train_data
+    valid: *valid_data
+
+  calib_params:
+    NoCalib: {}
+    OneHotCalib: {}
+    PlattCalib:
+      class_weights:
+        - ['linear', 0.5]
+        - ['quaddratic', 0.5]
+        - ['cubic', 0.5]
+    LinConfusion:
+      constraints:
+        # List [classA, classB, perc] giving classA to be confused as classB percentage of time
+        - ['linear', 'quadratic', 0.05]
+        - ['linear', 'cubic', 0.04]
+
+test_opts:
+  model: 'calib'
+  target_model: 'cal_model.h5'
+  datasets:
+    train: *train_data
+    valid: *valid_data
