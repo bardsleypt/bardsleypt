@@ -22,7 +22,8 @@ machine learning dev by day, climbing bum by night.
 
 ### Contact Info
 **email**: bardsleypt@gmail.com<br>
-**resume**: #TODO: insert href
+**resume**: [resume.pdf](./papers/resume.pdf)
+
 
 # My Portfolio
 
