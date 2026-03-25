@@ -12,7 +12,7 @@ machine learning dev by day, climbing bum by night.
   - abstract gradient flow formulations
   - Star Wars (in order: 5, 4, 6 #EmpireDidNothingWrong)
 - I am currently learning ...
-  - electrochemistry and mathematical modelling of lithium ion batteries
+  - differential geometry and calculus on manifolds
   - `while True:`<br>    `[self.learn(val) for val in ['python', 'cool_python_packages']]`
 - I am looking to collaborate on ...
   - anything with a mathematical physics aspect to it
@@ -58,7 +58,7 @@ of this codebase. By default, the notebook will execute:
 
 ## Professional Background
 - Cirrus Logic, Inc. (2017 - Present)
-  - Senior machine learning engineer
+  - Senior staff machine learning engineer
 - University of Texas at Austin, ICES (2016-2017)
   - Postdoctoral fellow
 - University of Utah, Department of Mathematics (2010-2016)
