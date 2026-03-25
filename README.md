@@ -13,6 +13,7 @@ machine learning dev by day, climbing bum by night.
   - Star Wars (in order: 5, 4, 6 #EmpireDidNothingWrong)
 - I am currently learning ...
   - differential geometry and calculus on manifolds
+  - Code architecture principles
   - `while True:`<br>    `[self.learn(val) for val in ['python', 'cool_python_packages']]`
 - I am looking to collaborate on ...
   - anything with a mathematical physics aspect to it
